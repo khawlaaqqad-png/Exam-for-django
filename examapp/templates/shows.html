@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shows</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome to your NEXTFIX, {{ request.session.first_name }}</h2>
+    </div>
+            <div class="header">
+                <h3>All the TV shows:</h3>
+                <a href="/show_creat">+ Creat</a>
+                <a href="/logout">Longout</a>
+            </div>
+            <div>
+
+                {% if Shows  %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Network</th>
+                                <th>Release Date</th>
+                                <th>More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for show in Shows %}
+                                <tr>
+                                    <td> <a href="/show_details/{{ show.id }}">  {{ show.title }} </a></td>
+                                    <td>{{ show.network }}</td>
+                                    <td>{{ show.release_date }}</td>
+                                    {% if show.user.id == request.session.user_id %}
+                                    <td><a href="/delete_show/{{ show.id }}" class="btn btn-primary me-md-2">Delete</a> <a href="/edit_show/{{ show.id }}">Edit</a></td>
+                                    {% else %}
+                                    <td> <a href="/show_details/{{ show.id }}" class="btn btn-primary me-md-2">Details</a></td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No Shows yet.</p>
+                {% endif %}
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    color: blue;
+}
+.h1_for_login{
+    color: blue;
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 40px;
+}
+
+.register,
+.login {
+    width: 350px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 120px;
+}
+
+input {
+    width: 180px;
+    height: 25px;
+}
+
+button {
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+
+td a {
+    margin-right: 10px;
+}

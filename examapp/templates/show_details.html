@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <P><a href="/logout">logout</a>  <a href="/shows">TV Shows</a></P>
+    </div>
+    {% if show %}
+    <div>
+        <h3>The Office</h3>
+        <p><label>Recommended By:</label>{{ show.user.first_name }} </p>
+
+        <p><label>Network:</label>{{ show.network }} </p>
+
+        <p><label>Release Date:</label>{{ show.release_date|date:'Y-m-d' }} </p>
+
+        <p><label>{{ request.session.first_name }}  Comments:</label>{{ show.comments }} </p>
+    </div>
+    {% endif %}
+</body>
+</html>
